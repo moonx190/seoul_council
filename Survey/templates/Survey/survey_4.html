@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    포스트 코로나 시대의 서울시의회의 역할과 과제에 관한 연구 온라인설문
+{% endblock %}
+
+{% block content %}
+    <br class="alert border">
+        연구 과제명: 행동경제학적 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
+        <br>작성자: 조남운, 어수진, 김종환, 문규범, 이지원, 정태성 (한국행동경제학연구소)</br>
+    </div>
+
+    <h3>1.서울시의회 인식 (리얼미터)</h3>
+    <div class="alert border">
+        서울시의회 관련 지식
+    </div>
+    <div class="alert border">{% formfield player.seoul_council_member_in_residential_district_knowledge %}</div>
+    <div class="alert border">{% formfield player.seoul_council_member_in_residential_district_party_knowledge %}</div>
+    <div class="alert border">{% formfield player.seoul_council_in_residential_district_policy_knowledge %}</div>
+    <div class="alert border">{% formfield player.seoul_council_in_residential_district_channel %}</div>
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+    <div class = "alert border">
+        서울시의회 평가
+    </div>
+
+
+    <button class = "btn btn-primary btn-large active">
+
+        모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+    </button>
+
+{% endblock %}
