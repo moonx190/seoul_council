@@ -59,6 +59,21 @@ class survey_6(Page):
     def is_displayed(self):
         return (self.player.seoul_council_member_in_residential_district_opinion == 3 or self.player.seoul_council_member_in_residential_district_opinion == 4)\
                and (self.player.seoul_council_member_in_residential_district_opinion != 5)
+
+class survey_7(Page):
+    form_model='player'
+    form_fields=[
+        'COVID_infected_yesno',
+        'COVID_infected_neighbors_yesno',
+        'COVID_test_yesno',
+    ]
+class survey_8(Page):
+    form_model='player'
+    form_fields=[
+        'COVID_test_reason',
+    ]
+    def is_displayed(self):
+        return self.player.COVID_test_yesno==True
 class ResultsWaitPage(WaitPage):
     pass
 
@@ -67,4 +82,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [survey_1,survey_2,survey_3,survey_4,survey_5,survey_6]
+page_sequence = [survey_1,survey_2,survey_3,survey_4,survey_5,survey_6,survey_7,survey_8]
