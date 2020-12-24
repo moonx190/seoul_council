@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+포스트 코로나 시대의 서울시의회의 역할과 과제에 관한 연구 온라인설문
+{% endblock %}
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            op_checker("id_COVID_termination_time_reason_4","COVID_termination_time_reason_op")
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<br class="alert border">
+연구 과제명: 행동경제학적 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
+<br>작성자: 조남운, 어수진, 김종환, 문규범, 이지원, 정태성 (한국행동경제학연구소)</br>
+</div>
+
+<h3>코로나19 시기의 서울시의회의 대응정책에 대한 평가</h3>
+<div class="alert border">
+※지원 내용 : 코로나19로 서울 관내 중·고등학교 및 유·초등·특수학교에 대해 전면 원격수업을 실시하게 되면서 돌봄 공백이 우려되는 유·초등 및 특수학교 장애학생들에게 우리동네키움센터(모든 서울시민 대상)와 지역아동센터(서울시 저소득층 대상)에서 긴급돌봄교실 운영 제공
+    <div class="alert border">{% formfield player.emergency_day_care_eval %}</div>
+    <div class="alert border">{% formfield player.did_you_use_emergency_day_care %}</div>
+</div>
+<style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+<button class = "btn btn-primary btn-large active">
+
+    모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+</button>
+
+{% endblock %}
+

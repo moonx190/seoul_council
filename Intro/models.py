@@ -1,26 +1,23 @@
 from otree.api import (
-    models,
-    widgets,
-    BaseConstants,
-    BaseSubsession,
-    BaseGroup,
-    BasePlayer,
-    Currency as c,
-    currency_range,
+    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+    Currency as c, currency_range
 )
+from Global_Constants import GlobalConstants
 
 
-author = 'Your name here'
+author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
 doc = """
-Your app description
+흡연이 노동력 상실에 미치는 영향과 정책방향 연구
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Intro'
+    name_in_url = 'introduction'
     players_per_group = None
     num_rounds = 1
+
+    EXCHANGE_RATE = GlobalConstants.EXCHANGE_RATE
 
 
 class Subsession(BaseSubsession):
@@ -32,4 +29,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    panel_id = models.StringField()

@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+포스트 코로나 시대의 서울시의회의 역할과 과제에 관한 연구 온라인설문
+{% endblock %}
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            op_checker("id_COVID_termination_time_reason_4","COVID_termination_time_reason_op")
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<br class="alert border">
+연구 과제명: 행동경제학적 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
+<br>작성자: 조남운, 어수진, 김종환, 문규범, 이지원, 정태성 (한국행동경제학연구소)</br>
+</div>
+
+<h3>코로나19 시기의 서울시의회의 대응정책에 대한 평가</h3>
+<div class="alert border">
+※ 세계보건기구(WHO)는 지금까지 다음 3가지 질병에 대해 판데믹(범유행전염병) 선언을 했습니다. ①1968년 홍콩에서 발병되어 유럽, 동남아시아 등지로 확산된 전염병(일명 ‘홍콩 독감’), ②2009년 미국에서 시작되어 전세계적으로 퍼진 인플루엔자 바이러스(일명 ‘신종플루’), ③2019년 말 중국에서부터 전파되어 현재까지 전세계에서 지속되고 있는 급성 호흡기 감염병(일명 ‘코로나19’)입니다.
+    <div class="alert border">{% formfield player.H1N1_countermeasure_bad_reason %}</div>
+</div>
+<style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+<button class = "btn btn-primary btn-large active">
+
+    모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+</button>
+
+{% endblock %}
+

@@ -10,6 +10,7 @@ from otree.api import (
 )
 from Global_Constants import GlobalConstants
 from . import survey_questions
+#import numpy as np
 author = 'Kyubum Moon<mailto:moonx190@umn.edu> & Namun Cho'
 
 doc = """
@@ -558,7 +559,7 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect,
     )
-    did_you_recieve_emergency_cash_injection = models.BooleanField(
+    did_you_receive_emergency_cash_injection = models.BooleanField(
         label="2020년 서울시 재난긴급생활지원비를 받으셨습니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
@@ -949,34 +950,40 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
     post_covid_seoul_council_policy_1_why = models.StringField(
-        label="1순위에 __분야를 선택하신 이유는 무엇입니까?",
+        label="1순위로 선택하신 분야를 1순위로 선택하신 이유는 무엇입니까?",
     )
     post_covid_seoul_council_policy_2_why = models.StringField(
-        label="2순위에 __분야를 선택하신 이유는 무엇입니까?",
+        label="2순위로 선택하신 분야를 2순위로 선택하신 이유는 무엇입니까?",
     )
     post_covid_seoul_council_policy_3_why = models.StringField(
-        label="3순위에 __분야를 선택하신 이유는 무엇입니까?",
+        label="3순위로 선택하신 분야를 3순위로 선택하신 이유는 무엇입니까?",
     )
     when_did_you_move_to_the_district_year = models.IntegerField(
-        choices=range(1950, 2021),
+        label="해당 자치구로 이전해오신 년도는 어떻게 되십니까?",
+        choices=range(2020, 1949,-1),
     )
     when_did_you_move_to_the_district_month = models.IntegerField(
+        label="몇월에 해당자치구로 이전해오셨습니까?",
         choices=range(1, 13),
     )
     where_did_you_reside_2016 = models.StringField(
-        label="",
+        label="2016년에 거주했던 지역을 작성해주세요.(※ 예시 : 2016년 00시 00구, 2017~2019년 00도 00시, 2020년 서울시 00구)",
     )
     where_did_you_reside_2017 = models.StringField(
-        label="",
+
+        label="2017년에 거주했던 지역을 작성해주세요.(※ 예시 : 2016년 00시 00구, 2017~2019년 00도 00시, 2020년 서울시 00구)",
     )
     where_did_you_reside_2018 = models.StringField(
-        label="",
+
+        label="2018년에 거주했던 지역을 작성해주세요.(※ 예시 : 2016년 00시 00구, 2017~2019년 00도 00시, 2020년 서울시 00구)",
     )
     where_did_you_reside_2019 = models.StringField(
-        label="",
+
+        label="2019년에 거주했던 지역을 작성해주세요.(※ 예시 : 2016년 00시 00구, 2017~2019년 00도 00시, 2020년 서울시 00구)",
     )
     where_did_you_reside_2020 = models.StringField(
-        label="",
+
+        label="2020년에 거주했던 지역을 작성해주세요.(※ 예시 : 2016년 00시 00구, 2017~2019년 00도 00시, 2020년 서울시 00구)",
     )
     household_income = models.IntegerField(
         label="최근 6개월 평균 가구소득액(즉, 가족 구성원 전체의 수입 합산액)은 어떻게 되십니까? 월별 세후 수령액 기준으로 선택해 주십시오.",
@@ -993,11 +1000,11 @@ class Player(BasePlayer):
     )
     high_class_standard = models.FloatField(
         label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 상류층이라고 보십니까? 상류층 : 상위    % 이내",
-        choices=(0.1, 99.1, 0.1),
+
     )
     middle_class_standard = models.FloatField(
         label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 중산층이라고 보십니까? 중산층 : 상위    % 이내",
-        choices=(0.1, 99.1, 0.1),
+
     )
     occupation = models.IntegerField(
         label="귀하께서 현재 근무하시는 기업의 업종은 다음 중 무엇입니까? 최근 1년 이내 근무경험 없으면 10)을 선택해주세요.",
