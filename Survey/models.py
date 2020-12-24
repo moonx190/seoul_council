@@ -9,7 +9,7 @@ from otree.api import (
     currency_range,
 )
 from Global_Constants import GlobalConstants
-
+from . import survey_questions
 author = 'Kyubum Moon<mailto:moonx190@umn.edu> & Namun Cho'
 
 doc = """
@@ -22,6 +22,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
+    prevention_effectiveness = survey_questions.PREVENTION_EFFECTIVENESS
     COVID_HOW_SEVERE_METRIC = [
         [1, "전혀 심각하지 않다"],
         [2, "심각하지 않은 편이다"],
@@ -29,20 +30,42 @@ class Constants(BaseConstants):
         [4, "심각한 편이다"],
         [5, "매우 심각하다 "],
     ]
-    COVID_EFFECTIVENESS_METRIC = [
-        [1, "전혀 도움이 되지 않는다"],
-        [2, "별로 도움이 되지 않는다"],
-        [3, "조금 도움이 된다"],
-        [4, "매우 도움이 된다"],
-    ]
-    PROSPECT_METRIC = [
-        [1, "매우 나빠질 것이다"],
-        [2, "다소 나빠질 것이다"],
-        [3, "그대로일 것이다"],
-        [4, "다소 좋아질 것이다"],
-        [5, "매우 좋아질 것이다"],
-    ]
+    COVID_EFFECTIVENESS_METRIC = GlobalConstants.COVID_EFFECTIVENESS_METRIC
+    PROSPECT_METRIC = GlobalConstants.PROSPECT_METRIC
+    prospect = survey_questions.PROSPECT_OUTLOOK
+    TRUST_METRIC = GlobalConstants.TRUST_METRIC
+    trust = survey_questions.TRUST_TARGET
 
+class Subsession(BaseSubsession):
+    pass
+
+
+class Group(BaseGroup):
+    pass
+
+def make_field_prevention_effectiveness(index):
+    return models.IntegerField(
+        label=Constants.prevention_effectiveness[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.COVID_EFFECTIVENESS_METRIC,
+        blank=True,
+    )
+
+def make_field_prospect(index):
+    return models.IntegerField(
+        label=Constants.prospect[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.PROSPECT_METRIC,
+        blank=True,
+    )
+
+def make_field_trust(index):
+    return models.IntegerField(
+        label=Constants.trust[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.TRUST_METRIC,
+        blank=True,
+    )
 class Player(BasePlayer):
     gender = models.IntegerField(
         label="귀하의 성별은 무엇입니까?",
@@ -272,7 +295,7 @@ class Player(BasePlayer):
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
     )
-    COVID_potential_infection_chaennel_1 = models.IntegerField(
+    COVID_potential_infection_channel_1 = models.IntegerField(
         label="신종 코로나 바이러스의 주요 감염경로는 다음 중 무엇이라고 생각하십니까?(1순위)",
         choices=[
             [1, "가족"],
@@ -283,7 +306,7 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect,
     )
-    COVID_potential_infection_chaennel_2 = models.IntegerField(
+    COVID_potential_infection_channel_2 = models.IntegerField(
         label="신종 코로나 바이러스의 주요 감염경로는 다음 중 무엇이라고 생각하십니까?(2순위)",
         choices=[
             [1, "가족"],
@@ -303,31 +326,11 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect,
     )
-    COVID_prevention_effectiveness_mask = models.IntegerField(
-        label="마스크 착용 ",
-        choices=Constants.COVID_EFFECTIVENESS_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    COVID_prevention_effectiveness_sleeve_manner = models.IntegerField(
-        label="기침할 때 옷소매로 가리기",
-        choices=Constants.COVID_EFFECTIVENESS_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    COVID_prevention_effectiveness_hand_sanitizing = models.IntegerField(
-        label="손씻기 혹은 손소독제 사용",
-        choices=Constants.COVID_EFFECTIVENESS_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    COVID_prevention_effectiveness_public_transportation_control = models.IntegerField(
-        label="대중교통 이용 자제",
-        choices=Constants.COVID_EFFECTIVENESS_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    COVID_prevention_effectiveness_mass_gathering = models.IntegerField(
-        label="다중이용시설 이용 자제",
-        choices=Constants.COVID_EFFECTIVENESS_METRIC,
-        widget=widgets.RadioSelect,
-    )
+    pe_1 = make_field_prevention_effectiveness(0)
+    pe_2 = make_field_prevention_effectiveness(1)
+    pe_3 = make_field_prevention_effectiveness(2)
+    pe_4 = make_field_prevention_effectiveness(3)
+    pe_5 = make_field_prevention_effectiveness(4)
     COVID_info_routinely = models.BooleanField(
         label = "귀하께서는 신종 코로나바이러스에 대한 정보를 주기적(하루에 1회 이상 직접확인)으로 얻고 있습니까?",
         choices=Constants.BINARY_CHOICES,
@@ -403,7 +406,7 @@ class Player(BasePlayer):
             [1, "코로나19 백신보급"],
             [2, "정부의 강도 높은 규제(사회적 거리두기 등) 시행"],
             [3, "민간부문에서의 기본적 방역수칙 생활화"],
-            [4, "기타"],
+            [4, "기타(직접입력)"],
         ],
         widget=widgets.RadioSelect,
     )
@@ -421,106 +424,20 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect,
     )
-    prospect_for_1 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 보건",
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    prospect_for_2 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 복지" ,
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    prospect_for_3 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 환경",
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    prospect_for_4 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 교통",
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    prospect_for_5 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 경제",
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    prospect_for_6 = models.IntegerField(
-        label="귀하께서는 신종코로나 바이러스의 종식이후 아래 영역의 상황을 현재 수준과 비교하여 어떻게 전망하십니까? 민주주의",
-        choices=Constants.PROSPECT_METRIC,
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_1 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 국립중앙의료원",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_2 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 질병관리청",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_3 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 공공보건의료기관(보건소 등)",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_4 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 보건복지부",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_5 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 청와대",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_6 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 서울특별시의회",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
-    COVID_countermeasure_institute_recognition_7 = models.IntegerField(
-        label="귀하께서는 신종 코로나바이러스 대응을 하는 다음의 공적인 주체를 현재 어느 정도 신뢰하고 계십니까? 언론",
-        choices=[
-            [1, "매우 신뢰함"],
-            [2, "다소 신뢰함"],
-            [3, "다소 신뢰하지 않음"],
-            [4, "전혀 신뢰하지 않음"],
-        ],
-        widget=widgets.RadioSelect,
-    )
+    p1 = make_field_prospect(0)
+    p2 = make_field_prospect(1)
+    p3 = make_field_prospect(2)
+    p4 = make_field_prospect(3)
+    p5 = make_field_prospect(4)
+    p6 = make_field_prospect(5)
+
+    t1 = make_field_trust(0)
+    t2 = make_field_trust(1)
+    t3 = make_field_trust(2)
+    t4 = make_field_trust(3)
+    t5 = make_field_trust(4)
+    t6 = make_field_trust(5)
+    t7 = make_field_trust(6)
     COVID_countermeasure_overall_eval = models.IntegerField(
         label="귀하께서는 정부가 신종 코로나 바이러스 사태에 대해 대응을 어떻게 하고 있다고 생각하십니까?",
         choices=[
@@ -582,7 +499,7 @@ class Player(BasePlayer):
             [4, "중점관리시설(식당‧카페) 포장‧배달만 허용(식당은21시 이후부터)"],
             [5, "일반관리시설 집합금지 및 21시 익일 05시 까지 운영 중단"],
             [6, "일반관리시설 인원제한, 음식 섭취 금지, 좌석 띄우기"],
-            [7, "기타()"],
+            [7, "기타(직접입력)"],
         ],
         widget=widgets.RadioSelect,
     )
@@ -599,7 +516,7 @@ class Player(BasePlayer):
             [4, "중점관리시설(식당‧카페) 포장‧배달만 허용(식당은21시 이후부터)"],
             [5, "일반관리시설 집합금지 및 21시 익일 05시 까지 운영 중단"],
             [6, "일반관리시설 인원제한, 음식 섭취 금지, 좌석 띄우기"],
-            [7, "기타()"],
+            [7, "기타(직접입력)"],
         ],
         widget=widgets.RadioSelect,
     )
@@ -1141,9 +1058,3 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect,
     )
-class Subsession(BaseSubsession):
-    pass
-
-
-class Group(BaseGroup):
-    pass

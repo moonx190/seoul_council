@@ -1,0 +1,56 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+포스트 코로나 시대의 서울시의회의 역할과 과제에 관한 연구 온라인설문
+{% endblock %}
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            op_checker("id_social_distancing_overreaction_6","social_distancing_overreaction_op")
+            op_checker("id_social_distancing_underreaction_6","social_distancing_underreaction_op")
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<br class="alert border">
+연구 과제명: 행동경제학적 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
+<br>작성자: 조남운, 어수진, 김종환, 문규범, 이지원, 정태성 (한국행동경제학연구소)</br>
+</div>
+
+<h3>10. 범유행전염병 대응정도 평가</h3>
+ <br class="alert border">
+        ※ 사회적 거리두기 2.5단계  (2020.12.7. 기준)
+        <br>주요항목</br>
+        <ul>
+            <li>다중이용시설 방역조치 위반시 원스트라이크 아웃제</li>
+            <li>중점관리시설(유흥시설, 공연장, 노래연습장, 홍보관 등) 집합금지</li>
+            <li>중점관리시설(식당‧카페) 마스크 착용, 출입자 명단관리, 환기‧소독 의무화</li>
+            <li>중점관리시설(식당‧카페) 포장‧배달만 허용(식당은 21시 이후부터)</li>
+            <li>일반관리시설 집합금지 및 21시 익일 05시 까지 운영 중단</li>
+            <li>일반관리시설 인원제한, 음식 섭취 금지, 좌석 띄우기</li>
+        </ul>
+        <div class="alert border">{% formfield player.COVID_countermeasure_social_distancing_evaluation %}</div>
+        <div class="alert border">{% formfield player.social_distancing_overreaction %}
+            <div class="optional" id="social_distancing_overreaction_op">{% formfield player.social_distancing_overreaction_op %}</div></div>
+        <div class="alert border">{% formfield player.social_distancing_underreaction %}
+            <div class="optional" id="social_distancing_underreaction_op">{% formfield player.social_distancing_underreaction_op %}</div></div>
+    </div>
+
+<style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+<button class = "btn btn-primary btn-large active">
+
+    모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+</button>
+
+{% endblock %}
+

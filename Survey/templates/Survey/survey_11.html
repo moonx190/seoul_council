@@ -1,0 +1,70 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+포스트 코로나 시대의 서울시의회의 역할과 과제에 관한 연구 온라인설문
+{% endblock %}
+{% block app_scripts %}
+    <script>
+
+        $(document).ready(function(){
+            hide_others(["id_COVID_potential_infection_channel_1",
+                "id_COVID_potential_infection_channel_2"], 5);
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<br class="alert border">
+연구 과제명: 행동경제학적 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
+<br>작성자: 조남운, 어수진, 김종환, 문규범, 이지원, 정태성 (한국행동경제학연구소)</br>
+</div>
+
+<h3>5. 본인의 감염 가능성 인식</h3>
+<div class="alert border">{% formfield player.COVID_potential_infection_channel_1 %}</div>
+<div class="alert border">{% formfield player.COVID_potential_infection_channel_2 %}</div>
+<div class="alert border">{% formfield player.COVID_fear_which %}</div>
+<div class="alert border">
+        <p>※ 귀하는 아래 행위들이 신종 코로나바이러스 ‘예방’에 얼마나 도움이 된다고 생각하십니까?</p>
+    </div>
+
+    <div class="center-align">
+    <table class="tableFixedHead table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            {% for sq_choices in COVID_EFFECTIVENESS_METRIC %}
+            <th>{{ sq_choices }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for sq in form %}
+            {% if forloop.counter >= 4 and forloop.counter <= 8 %}
+                <tr>
+                <th>{{ sq.label }}</th>
+                {% for choice in sq %}
+                <td class="text-center align-middle">{{ choice.tag }}</td>
+                {% endfor %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+<style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+<button class = "btn btn-primary btn-large active">
+
+    모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+</button>
+
+{% endblock %}
