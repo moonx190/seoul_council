@@ -999,11 +999,11 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
     high_class_standard = models.FloatField(
-        label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 상류층이라고 보십니까? 상류층 : 상위    % 이내",
+        label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 상류층이라고 보십니까? 상류층 : 상위    % 이내(0.1% ~99%)",
 
     )
     middle_class_standard = models.FloatField(
-        label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 중산층이라고 보십니까? 중산층 : 상위    % 이내",
+        label="귀하께서는 소득과 자산 총액을 기준으로 대한민국 국민을 일렬로 세웠을 때 상위 어느 정도 이내가 중산층이라고 보십니까? 중산층 : 상위    % 이내(위 답변 + 0.1 ~ 99%)",
 
     )
     occupation = models.IntegerField(
