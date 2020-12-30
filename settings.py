@@ -1,5 +1,6 @@
 from os import environ
 
+
 SESSION_CONFIGS = [
     {
         "name":"online_survey",
@@ -7,7 +8,8 @@ SESSION_CONFIGS = [
         "num_demo_participants":1,
         "app_sequence":[
             #"Intro",
-            "Survey",
+            "treatment",
+            # "Survey",
             #"Ending",
         ]
     }
