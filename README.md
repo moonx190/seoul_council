@@ -6,5 +6,5 @@
 
 # Contributors
 
-* KB [email](mailto:moonx190@umn.edu)
+* KB [moonx190@umn.edu](mailto:moonx190@umn.edu)
 * NW [dr.strangelove@kberi.re.kr](mailto:dr.strangelove@kberi.re.kr)
