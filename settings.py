@@ -3,16 +3,32 @@ from os import environ
 
 SESSION_CONFIGS = [
     {
-        "name":"online_survey",
-        "display_name":"서울시의회 온라인설문조사",
+        "name":"online_survey_t",
+        "display_name":"서울시의회 온라인 설문조사 비교",
         "num_demo_participants":1,
         "app_sequence":[
-            #"Intro",
+            "Intro",
+            "Survey",
             "treatment",
-            # "Survey",
-            #"Ending",
+            "iat",
+            "survey_after_treatment",
+            "Ending",
         ]
-    }
+    },
+    {
+        "name":"online_survey_c",
+        "display_name":"서울시의회 온라인 설문조사 기준",
+        "num_demo_participants":1,
+        "app_sequence":[
+            "Intro",
+            "Survey",
+            "iat",
+            "control",
+            "survey_after_treatment",
+            "Ending",
+        ]
+    },
+
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
