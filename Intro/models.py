@@ -8,7 +8,7 @@ from Global_Constants import GlobalConstants
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
 doc = """
-흡연이 노동력 상실에 미치는 영향과 정책방향 연구
+행동경제학 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
 """
 
 

@@ -8,7 +8,7 @@ import time
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr'
 
 doc = """
-건진원 프로젝트
+행동경제학 관점에서 본 포스트 코로나 시대의 서울시의회의 역할과 과제
 """
 
 
