@@ -3,10 +3,10 @@ from os import environ
 
 SESSION_CONFIGS = [
     {
-        "name":"online_survey_t",
-        "display_name":"서울시의회 온라인 설문조사 비교",
-        "num_demo_participants":1,
-        "app_sequence":[
+        "name": "online_survey_t",
+        "display_name": "서울시의회 온라인 설문조사 비교",
+        "num_demo_participants": 1,
+        "app_sequence": [
             "Intro",
             "Survey",
             "treatment",
@@ -16,16 +16,44 @@ SESSION_CONFIGS = [
         ]
     },
     {
-        "name":"online_survey_c",
-        "display_name":"서울시의회 온라인 설문조사 기준",
-        "num_demo_participants":1,
-        "app_sequence":[
+        "name": "online_survey_c",
+        "display_name": "서울시의회 온라인 설문조사 기준",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "Survey",
+            "control",
+            "iat",
+            "survey_after_treatment",
+            "Ending",
+        ]
+    },
+    {
+        "name": "online_survey_c2",
+        "display_name": "서울시의회 온라인 설문조사 기준(무처치)",
+        "num_demo_participants": 1,
+        "app_sequence": [
             "Intro",
             "Survey",
             "iat",
-            "control",
             "survey_after_treatment",
             "Ending",
+        ]
+    },
+    {
+        "name": "treatment_only",
+        "display_name": "처치",
+        "num_demo_participants":1,
+        "app_sequence": [
+            "treatment",
+        ]
+    },
+    {
+        "name": "control_only",
+        "display_name": "통제",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "control",
         ]
     },
 

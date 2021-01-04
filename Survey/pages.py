@@ -189,5 +189,24 @@ class survey_19(Page):
         'social_distancing_underreaction_op',
     ]
 
-page_sequence = [survey_1,survey_2,survey_3,survey_4,survey_5,survey_6,survey_7,survey_8,survey_9,survey_10,survey_11,
-                 survey_12,survey_13,survey_14,survey_15,survey_16,survey_17,survey_18,survey_19,]
+page_sequence = [
+    # survey_1,
+    survey_2,
+    survey_3,
+    survey_4,
+    survey_5,
+    survey_6,
+    survey_7,
+    survey_8,
+    survey_9,
+    survey_10,
+    survey_11,
+    survey_12,
+    survey_13,
+    survey_14,
+    survey_15,
+    survey_16,
+    survey_17,
+    survey_18,
+    survey_19,
+]

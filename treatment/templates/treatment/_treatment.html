@@ -23,7 +23,7 @@
     .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
     .tg .tg-0lax{text-align:left;vertical-align:top}
 
-    #control_info{
+    #council_info{
         display:block;
         overflow:hidden;
         border:1px solid black;
@@ -33,26 +33,25 @@
     }
     iframe{
         position:relative;
-        top:-220px;
-        left:-330px;
+        top:-148px;
+        left:-103px;
     }
 
     </style>
-       <div>
-        아래는 이달의 독립운동가 정보중 일부입니다. {{ Constants.WAITING_SECONDS }}초동안 내용을 살펴보아주시기 바랍니다. {{ Constants.WAITING_SECONDS }}초가 지나면 다음 버튼이 생성됩니다.
-        </div>
-        <div class="row">
-            <div id="control_info">
-               <iframe src="https://e-gonghun.mpva.go.kr/user/IndepCrusaderDetail.do?goTocode=20003" scrolling="no" width="1440px" height="1000px"></iframe>
-            </div>
+    <div>
+        아래는 귀하가 거주하는 지역의 서울특별시의회 구의원의 정보중 일부입니다. {{ Constants.WAITING_SECONDS }}초동안 내용을 살펴보아주시기 바랍니다. {{ Constants.WAITING_SECONDS }}초가 지나면 다음 버튼이 생성됩니다.
+    </div>
+    <div class="row">
+        <div id="council_info">
+            <iframe src="https://www.smc.seoul.kr/home/{{ url_number }}" width="1440px" height="1000px" scrolling="no"></iframe>
         </div>
     </div>
 
     <div class="optional" id="next_button">
         <button class="btn btn-primary btn-large active">
 
-            {{ Constants.WAITING_SECONDS }}초가 경과하였습니다. 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
-        </button>
+    {{ Constants.WAITING_SECONDS }}초가 경과하였습니다. 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+    </button>
     </div>
 
 
