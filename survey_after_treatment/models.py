@@ -187,7 +187,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
     did_you_use_free_online_learning = models.BooleanField(
-        label="2020년 실시된 서울시 무료 온라인 학습강좌 확대 정책을 어떻게 평가하십니까?",
+        label="2020년 실시된 서울시 무료 온라인 학습강좌 확대 이후 서울시 무료 온라인 학습강좌를 사용해보셨습니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
     )
@@ -219,7 +219,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
     was_emergency_day_care_helpful = models.IntegerField(
-        label="2020년 서울시 유아 및 초등학생 대상 긴급돌봄교실을 이용해본 적 있으십니까?",
+        label="2020년 서울시 유아 및 초등학생 대상 긴급돌봄교실이 얼마나 도움이 되었습니까?",
         choices=[
             [1, "전혀 도움되지 않았다"],
             [2, "약간 도움되지 않았다"],
@@ -311,7 +311,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
     special_worker_free_lancer_support_eval = models.IntegerField(
-        label="2020년 실시된 서울시 특수고용노동자 및 프리랜서 특별지원 	정책을 어떻게 평가하십니까?",
+        label="2020년 실시된 서울시 특수고용노동자 및 프리랜서 특별지원 정책을 어떻게 평가하십니까?",
         choices=[
             [1, "매우 부정적이다"],
             [2, "약간 부정적이다"],
