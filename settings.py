@@ -56,6 +56,14 @@ SESSION_CONFIGS = [
             "control",
         ]
     },
+    {
+        "name": "quiz",
+        "display_name": "퀴즈",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "quiz",
+        ]
+    }
 
 ]
 
