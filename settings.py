@@ -61,7 +61,9 @@ SESSION_CONFIGS = [
         "display_name": "퀴즈",
         "num_demo_participants": 1,
         "app_sequence": [
+            "Intro",
             "quiz",
+            "Ending",
         ]
     }
 

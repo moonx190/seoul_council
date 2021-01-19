@@ -4,7 +4,7 @@ from .models import Constants
 
 import random
 import time
-from IAT_Global_Constants import GlobalConstants
+from Global_Constants import GlobalConstants
 
 
 class Quiz(Page):
