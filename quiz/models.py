@@ -24,7 +24,7 @@ class Constants(BaseConstants):
 
     quizzes = quiz_lists.educative_quizzes
 
-    num_rounds = len(quizzes) * 2
+    num_rounds = len(quizzes)
 
 
 class Subsession(BaseSubsession):
@@ -32,7 +32,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):  # shuffle quiz order
         if self.round_number == 1:
             for p in self.get_players():
-                doubled_quiz_list = Constants.quizzes + Constants.quizzes  # 두번씩 나와야 하므로
+                doubled_quiz_list = Constants.quizzes
                 random.shuffle(doubled_quiz_list)
                 p.participant.vars['shuffled_quiz_set'] = doubled_quiz_list
 
