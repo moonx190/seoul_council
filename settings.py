@@ -9,8 +9,20 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
-            "quiz",
             "treatment",
+            "iat",
+            "survey_after_treatment",
+            "Ending",
+        ]
+    },
+    {
+        "name": "online_survey_q",
+        "display_name": "서울시의회 온라인 설문조사 퀴즈처치",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "Survey",
+            "quiz",
             "iat",
             "survey_after_treatment",
             "Ending",
@@ -23,7 +35,6 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
-            "quiz",
             "control",
             "iat",
             "survey_after_treatment",
@@ -37,7 +48,6 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
-            "quiz",
             "iat",
             "survey_after_treatment",
             "Ending",

@@ -7,6 +7,11 @@ import time
 from Global_Constants import GlobalConstants
 
 
+class Introduction(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+
 class Quiz(Page):
     form_model = 'player'
     form_fields = [
@@ -54,6 +59,7 @@ class Results(Page):
 
 
 page_sequence = [
+    Introduction,
     Quiz,
     Results,
 ]
