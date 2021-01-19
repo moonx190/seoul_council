@@ -143,61 +143,7 @@ class Player(BasePlayer):
             [4, "전혀 알지 못 한다"],
         ],
     )
-    seoul_council_in_residential_district_channel_1 = models.BooleanField(
-        label="포털사이트(네이버, 다음 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_2 = models.BooleanField(
-        label="대중교통내 방송(버스, 지하철 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_3 = models.BooleanField(
-        label="정기간행물(의회 소식지, 잡지 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_4 = models.BooleanField(
-        label="종이신문",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_5 = models.BooleanField(
-        label="종편 또는 보도전문 채널(JTBC, TV조선, YTN, 연합뉴스 TV등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_6 = models.BooleanField(
-        label="케이블 TV(딜라이브, 티브로드 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_7 = models.BooleanField(
-        label="지상파 방송(KBS, MBC, SBS 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_8 = models.BooleanField(
-        label="SNS(페이스북, 유튜브, 트위터, 블로그 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_9 = models.BooleanField(
-        label="라디오 방송(TBS, CBS, SBS 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_10 = models.BooleanField(
-        label="기타(지인 등)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
-    seoul_council_in_residential_district_channel_11 = models.BooleanField(
-        label="해당없음(미인식)",
-        widget=widgets.CheckboxInput,
-        blank=True,
-    )
+
     seoul_council_member_in_residential_district_opinion = models.IntegerField(
         label="귀하께서는 서을특별시의회와 시의원들의 의정활동에 대하여 전반적으로 어떻게 생각하십니까?",
         widget = widgets.RadioSelect,
@@ -547,3 +493,14 @@ class Player(BasePlayer):
     ksc10 = make_field_knowledge_seoul_council(9)
     ksc11 = make_field_knowledge_seoul_council(10)
     ksc12 = make_field_knowledge_seoul_council(11)
+
+    seoul_council_budget_yesno = models.IntegerField(
+        label = "서울시의회 예산이 어느정도인가 아시는가?",
+        widget = widgets.RadioSelect,
+        choices = range(10,110,10),
+    )
+    seoul_council_record_available = models.BooleanField(
+        label = "서울시의회 회의 자료가 공개되어 있는 것을 아시는가?",
+        widget = widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )

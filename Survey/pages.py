@@ -28,17 +28,6 @@ class survey_3(Page):
 class survey_4(Page):
     form_model='player'
     form_fields=[
-        'seoul_council_in_residential_district_channel_1',
-        'seoul_council_in_residential_district_channel_2',
-        'seoul_council_in_residential_district_channel_3',
-        'seoul_council_in_residential_district_channel_4',
-        'seoul_council_in_residential_district_channel_5',
-        'seoul_council_in_residential_district_channel_6',
-        'seoul_council_in_residential_district_channel_7',
-        'seoul_council_in_residential_district_channel_8',
-        'seoul_council_in_residential_district_channel_9',
-        'seoul_council_in_residential_district_channel_10',
-        'seoul_council_in_residential_district_channel_11',
         'seoul_council_member_in_residential_district_opinion',
     ]
 class survey_5(Page):
@@ -203,6 +192,8 @@ class survey_20(Page):
         'ksc10',
         'ksc11',
         'ksc12',
+        'seoul_council_budget_yesno',
+        'seoul_council_record_available',
     ]
 
     def vars_for_template(self) -> dict:
