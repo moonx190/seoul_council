@@ -395,6 +395,8 @@ class Player(BasePlayer):
     t5 = make_field_trust(4)
     t6 = make_field_trust(5)
     t7 = make_field_trust(6)
+    t8 = make_field_trust(7)
+
     COVID_countermeasure_overall_eval = models.IntegerField(
         label="귀하께서는 정부가 신종 코로나 바이러스 사태에 대해 대응을 어떻게 하고 있다고 생각하십니까?",
         choices=[
@@ -495,12 +497,12 @@ class Player(BasePlayer):
     ksc12 = make_field_knowledge_seoul_council(11)
 
     seoul_council_budget_yesno = models.IntegerField(
-        label = "서울시의회 예산이 어느정도인가 아시는가?",
-        widget = widgets.RadioSelect,
-        choices = range(10,110,10),
+        label="2020년 서울시의회에서 편성한 예산에 가장 가까운 금액은 얼마일 것 같으십니까?(단위: 조원)",
+        # widget = widgets.RadioSelect,
+        choices=range(10,110,10),
     )
     seoul_council_record_available = models.BooleanField(
-        label = "서울시의회 회의 자료가 공개되어 있는 것을 아시는가?",
-        widget = widgets.RadioSelectHorizontal,
+        label="서울시의회 회의 자료가 홈페이지에 공개되어 언제나 열람할 수 있다는 사실을 알고 계셨습니까?",
+        widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )

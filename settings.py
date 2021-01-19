@@ -41,44 +41,44 @@ SESSION_CONFIGS = [
             "Ending",
         ]
     },
-    {
-        "name": "online_survey_c2",
-        "display_name": "서울시의회 온라인 설문조사 기준(무처치)",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "Intro",
-            "Survey",
-            "iat",
-            "survey_after_treatment",
-            "Ending",
-        ]
-    },
-    {
-        "name": "treatment_only",
-        "display_name": "처치",
-        "num_demo_participants":1,
-        "app_sequence": [
-            "treatment",
-        ]
-    },
-    {
-        "name": "control_only",
-        "display_name": "통제",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "control",
-        ]
-    },
-    {
-        "name": "quiz",
-        "display_name": "퀴즈",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "Intro",
-            "quiz",
-            "Ending",
-        ]
-    }
+    # {
+    #     "name": "online_survey_c2",
+    #     "display_name": "서울시의회 온라인 설문조사 기준(무처치)",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "Intro",
+    #         "Survey",
+    #         "iat",
+    #         "survey_after_treatment",
+    #         "Ending",
+    #     ]
+    # },
+    # {
+    #     "name": "treatment_only",
+    #     "display_name": "처치",
+    #     "num_demo_participants":1,
+    #     "app_sequence": [
+    #         "treatment",
+    #     ]
+    # },
+    # {
+    #     "name": "control_only",
+    #     "display_name": "통제",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "control",
+    #     ]
+    # },
+    # {
+    #     "name": "quiz",
+    #     "display_name": "퀴즈",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "Intro",
+    #         "quiz",
+    #         "Ending",
+    #     ]
+    # }
 
 ]
 

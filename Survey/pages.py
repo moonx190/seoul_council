@@ -138,6 +138,7 @@ class survey_14(Page):
         't5',
         't6',
         't7',
+        't8',
     ]
 
     def vars_for_template(self) -> dict:
