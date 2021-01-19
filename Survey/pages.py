@@ -188,7 +188,27 @@ class survey_19(Page):
         'social_distancing_underreaction',
         'social_distancing_underreaction_op',
     ]
+class survey_20(Page):
+    form_model = 'player'
+    form_fields=[
+        'ksc1',
+        'ksc2',
+        'ksc3',
+        'ksc4',
+        'ksc5',
+        'ksc6',
+        'ksc7',
+        'ksc8',
+        'ksc9',
+        'ksc10',
+        'ksc11',
+        'ksc12',
+    ]
 
+    def vars_for_template(self) -> dict:
+        vars_to_return = {}
+        vars_to_return['KNOWLEDGE_METRIC'] = [i[1] for i in Constants.KNOWLEDGE_METRIC]
+        return vars_to_return
 page_sequence = [
     # survey_1,
     survey_2,
@@ -209,4 +229,5 @@ page_sequence = [
     survey_17,
     survey_18,
     survey_19,
+    survey_20,
 ]

@@ -9,13 +9,13 @@ import quiz_lists
 author = 'Namun Cho <mailto:kberi.namun@gmail.com>'
 
 doc = """
-성평등 인식개선 퀴즈 treatment
+서울시의회와 서울시행정부 역할 퀴즈 treatment
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'quiz'
-    quiz_title = "성과 사회적 역할에 대한 인식 퀴즈"
+    quiz_title = "서울시의회와 서울시행정부 역할 퀴즈"
     left_keycode = 49  # 1
     right_keycode = 48  # 0
     META_KEYCODE = 32  # space bar

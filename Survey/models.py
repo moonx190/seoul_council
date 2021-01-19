@@ -36,6 +36,9 @@ class Constants(BaseConstants):
     prospect = survey_questions.PROSPECT_OUTLOOK
     TRUST_METRIC = GlobalConstants.TRUST_METRIC
     trust = survey_questions.TRUST_TARGET
+    KNOWLEDGE_METRIC = GlobalConstants.KNOWLEDGE_METRIC
+    seoul_council_info = survey_questions.SEOUL_COUNCIL_INFO
+
 
 class Subsession(BaseSubsession):
     pass
@@ -65,6 +68,13 @@ def make_field_trust(index):
         label=Constants.trust[index-1],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.TRUST_METRIC,
+        blank=True,
+    )
+def make_field_knowledge_seoul_council(index):
+    return models.IntegerField(
+        label=Constants.seoul_council_info[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.KNOWLEDGE_METRIC,
         blank=True,
     )
 class Player(BasePlayer):
@@ -525,3 +535,15 @@ class Player(BasePlayer):
         label="기타(직접입력)",
         blank=True,
     )
+    ksc1 = make_field_knowledge_seoul_council(0)
+    ksc2 = make_field_knowledge_seoul_council(1)
+    ksc3 = make_field_knowledge_seoul_council(2)
+    ksc4 = make_field_knowledge_seoul_council(3)
+    ksc5 = make_field_knowledge_seoul_council(4)
+    ksc6 = make_field_knowledge_seoul_council(5)
+    ksc7 = make_field_knowledge_seoul_council(6)
+    ksc8 = make_field_knowledge_seoul_council(7)
+    ksc9 = make_field_knowledge_seoul_council(8)
+    ksc10 = make_field_knowledge_seoul_council(9)
+    ksc11 = make_field_knowledge_seoul_council(10)
+    ksc12 = make_field_knowledge_seoul_council(11)

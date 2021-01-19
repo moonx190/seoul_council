@@ -9,6 +9,7 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
+            "quiz",
             "treatment",
             "iat",
             "survey_after_treatment",
@@ -22,6 +23,7 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
+            "quiz",
             "control",
             "iat",
             "survey_after_treatment",
@@ -35,6 +37,7 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "Survey",
+            "quiz",
             "iat",
             "survey_after_treatment",
             "Ending",
