@@ -10,7 +10,8 @@ class GlobalConstants:
     EXTERNAL_URL_TEST = 'http://127.0.0.1/~j/test/'  # running url
     # EXTERNAL_URL_PRODUCTION = 'http://survey.panel.co.kr/2019/80634/m5.asp+'  # reserved
     # EXTERNAL_URL_PRODUCTION = 'https://survey.panel.co.kr/2020/92818/m9.asp'  # reserved
-    EXTERNAL_URL_PRODUCTION = "https://survey.panel.co.kr/2021/94429/m9.asp"  # reserved
+    # EXTERNAL_URL_PRODUCTION = "https://survey.panel.co.kr/2021/94429/m9.asp"  # 서울시의회 포스트코로나 사전조사
+    EXTERNAL_URL_PRODUCTION = "https://survey.panel.co.kr/2021/94739/m9.asp"    # 서울시의회 포스트코로나 본조사
 
     IS_TEST = False
 
