@@ -4,7 +4,7 @@ from os import environ
 SESSION_CONFIGS = [
     {
         "name": "online_survey_t",
-        "display_name": "서울시의회 온라인 설문조사 비교",
+        "display_name": "test",
         "num_demo_participants": 1,
         "app_sequence": [
             "Intro",
@@ -15,32 +15,32 @@ SESSION_CONFIGS = [
             "Ending",
         ]
     },
-    {
-        "name": "online_survey_q",
-        "display_name": "서울시의회 온라인 설문조사 퀴즈처치",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "Intro",
-            "Survey",
-            "quiz",
-            "iat",
-            "survey_after_treatment",
-            "Ending",
-        ]
-    },
-    {
-        "name": "online_survey_c",
-        "display_name": "서울시의회 온라인 설문조사 기준",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "Intro",
-            "Survey",
-            "control",
-            "iat",
-            "survey_after_treatment",
-            "Ending",
-        ]
-    },
+    # {
+    #     "name": "online_survey_q",
+    #     "display_name": "서울시의회 온라인 설문조사 퀴즈처치",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "Intro",
+    #         "Survey",
+    #         "quiz",
+    #         "iat",
+    #         "survey_after_treatment",
+    #         "Ending",
+    #     ]
+    # },
+    # {
+    #     "name": "online_survey_c",
+    #     "display_name": "서울시의회 온라인 설문조사 기준",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "Intro",
+    #         "Survey",
+    #         "control",
+    #         "iat",
+    #         "survey_after_treatment",
+    #         "Ending",
+    #     ]
+    # },
     # {
     #     "name": "online_survey_c2",
     #     "display_name": "서울시의회 온라인 설문조사 기준(무처치)",
@@ -78,8 +78,17 @@ SESSION_CONFIGS = [
     #         "quiz",
     #         "Ending",
     #     ]
-    # }
-
+    # },
+    {
+        "name": "iat",
+        "display_name": "IAT",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "iat",
+            "Ending",
+        ]
+    },
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

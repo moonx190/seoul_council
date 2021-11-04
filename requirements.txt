@@ -1,5 +1,5 @@
 # oTree-may-not-overwrite-this-file
 -r requirements_base.txt
-psycopg2>=2.5.1
+psycopg2==2.8.6
 numpy>=1.15.4
 requests
