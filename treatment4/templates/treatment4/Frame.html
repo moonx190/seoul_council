@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    아래 메시지가 약 {{ Constants.WAITING_SECONDS }} 초 동안 나타납니다. 가능한한 꼼꼼히 읽어보시고 이후 과정을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        show_after("next_button", {{ Constants.WAITING_SECONDS }})
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid align-center">
+        <div class="alert-danger border row h1 align-center" style="line-height: 160%">
+            <p>
+                금연에 성공한 사람은 흡연자에 비해 코로나19 감염시 증상이 나빠질 가능성이 약 30% 낮습니다
+            </p>
+        </div>
+    </div>
+
+    <div class="optional" id="next_button">
+        {% next_button %}
+    </div>
+
+{% endblock %}

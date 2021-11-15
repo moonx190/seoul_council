@@ -1,20 +1,34 @@
+import os
 from os import environ
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.environ.get('REDIS_URL'),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {
+                "ssl_cert_reqs": None
+            },
+        }
+    }
+}
 
 
 SESSION_CONFIGS = [
-    {
-        "name": "online_survey_t",
-        "display_name": "test",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "Intro",
-            "Survey",
-            "treatment",
-            "iat",
-            "survey_after_treatment",
-            "Ending",
-        ]
-    },
+    # {
+    #     "name": "online_survey_t",
+    #     "display_name": "test",
+    #     "num_demo_participants": 1,
+    #     "app_sequence": [
+    #         "Intro",
+    #         "Survey",
+    #         "treatment",
+    #         "iat",
+    #         "survey_after_treatment",
+    #         "Ending",
+    #     ]
+    # },
     # {
     #     "name": "online_survey_q",
     #     "display_name": "서울시의회 온라인 설문조사 퀴즈처치",
@@ -86,6 +100,55 @@ SESSION_CONFIGS = [
         "app_sequence": [
             "Intro",
             "iat",
+            "debriefing",
+            "Ending",
+        ]
+    },
+    {
+        "name": "treatment1",
+        "display_name": "처치1",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "treatment1",
+            "iat",
+            "debriefing",
+            "Ending",
+        ]
+    },
+    {
+        "name": "treatment2",
+        "display_name": "처치2",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "treatment2",
+            "iat",
+            "debriefing",
+            "Ending",
+        ]
+    },
+    {
+        "name": "treatment3",
+        "display_name": "처치3",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "treatment3",
+            "iat",
+            "debriefing",
+            "Ending",
+        ]
+    },
+    {
+        "name": "treatment4",
+        "display_name": "처치4",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "Intro",
+            "treatment4",
+            "iat",
+            "debriefing",
             "Ending",
         ]
     },

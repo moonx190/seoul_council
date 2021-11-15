@@ -9,7 +9,7 @@ import iat_order
 author = 'Namun Cho <dr.strangelove@kberi.re.kr>'
 
 doc = """
-IAT (Implicit Association Test) solution for KBERI 2019 research"
+IAT (Implicit Association Test) 코로나19등 신종감염병 대응을 위한 국가금연지원사업 전략 개발
 """
 
 

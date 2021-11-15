@@ -5,6 +5,22 @@ from Global_Constants import GlobalConstants
 import time
 
 
+class Greeting(Page):
+    def vars_for_template(self):
+        self.player.panel_id = self.participant.label or GlobalConstants.DEFAULT_PANEL_ID
+        self.participant.label = self.player.panel_id
+        self.participant.vars['panel_id'] = self.player.panel_id
+        return {
+            'panel_id': self.player.panel_id,
+            'WAITING_SECONDS': GlobalConstants.WAITING_SECONDS
+        }
+
+    def before_next_page(self):
+        # print("#### before_next_page called")
+        self.participant.vars['expiry'] = time.time() + GlobalConstants.EXPIRE_SECONDS
+        self.participant.vars['start_time'] = time.time()
+        # print("expiry = ", self.participant.vars['expiry'])
+
 class Consent_IRB(Page):
     def vars_for_template(self):
         self.player.panel_id = self.participant.label or GlobalConstants.DEFAULT_PANEL_ID
@@ -29,6 +45,5 @@ class Consent_confirm(Page):
 
 
 page_sequence = [
-    Consent_IRB,
-    Consent_confirm,
+    Greeting
 ]

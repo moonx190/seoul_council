@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    아래 메시지가 약 {{ Constants.WAITING_SECONDS }} 초 동안 나타납니다. 가능한한 꼼꼼히 읽어보시고 이후 과정을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        show_after("next_button", {{ Constants.WAITING_SECONDS }})
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid align-center">
+        <div class="alert-danger border row h1 align-center" style="line-height: 160%">
+            <p>
+                흡연자는 비흡연자에 비해 폐암 발생률이 3배 가량 더 높습니다
+            </p>
+        </div>
+    </div>
+
+    <div class="optional" id="next_button">
+        {% next_button %}
+    </div>
+
+{% endblock %}
